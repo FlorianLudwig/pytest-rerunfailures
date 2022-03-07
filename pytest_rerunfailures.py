@@ -515,7 +515,7 @@ def pytest_runtest_protocol(item, nextitem):
     while need_to_run:
         item.execution_count += 1
         item.ihook.pytest_runtest_logstart(nodeid=item.nodeid, location=item.location)
-        reports = runtestprotocol(item, nextitem=nextitem, log=False)
+        reports = runtestprotocol(item, nextitem=nextitem, log=True)
 
         for report in reports:  # 3 reports: setup, call, teardown
             report.rerun = item.execution_count - 1
